@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+/*-------------- 全体共通スタイル---------------- */
+html {
+    font-size: 100%;
+}
+
+a {
+    color: #007bff;
+}
+
+h1,
+h2,
+h3 {
+    color: #FF4500;
+}
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    border: 5px solid rgb(11, 221, 11);
+    border-radius: 10px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.text {
+    margin: 0;
+    text-align: left;
+}
+
+.main-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.main-nav li:first-child {
+    margin-left: 0;
+}
+
+/* -----------------index.html--------------------------- */
+
+/* 3カラムレイアウト */
+.index-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* ==============アニメーション定義============== */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.re-css {
+    animation: slideInRight 1s ease forwards;
+}
+
+/* -------アニメーション定義------ */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.ki-css {
+    animation: slideInLeft 1s ease forwards;
+}
+
+.pt {
+    text-align: center;
+}
+
+/* =====================アニメーション終了========================= */
+
+
+/*画面が768px以下なら 2カラムレイアウト */
+.index-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.index-form img {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .index-form img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.h2-tag {
+    text-align: center;
+    font-size: 38px;
+}
+
+.games {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* =================ポインター当てたら画像を左右にスクロールできてないw===================== */
+/* カルーセルというらしい */
+.games {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.img-class {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+
+.games img {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+.scroll-button-left,
+.scroll-button-right {
+    position: absolute;
+    top: 60px;
+    transform: translateY(-50%);
+    z-index: 999;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-buttons:hover .scroll-button-left,
+.scroll-buttons:hover .scroll-button-right {
+    opacity: 1;
+}
+
+.scroll-button-left {
+    left: 10px;
+}
+
+.scroll-button-right {
+    right: 10px;
+}
+
+.games:hover {
+    overflow-x: scroll;
+}
+
+.scroll-buttons {
+    position: relative;
+    overflow: hidden;
+}
+
+.nuigurumi-class img {
+    display: inline-block;
+    width: 200px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.nuigurumi-class p {
+    display: inline-block;
+    width: calc(100% - 120px);
+    vertical-align: top;
+}
+
+/* -----------上に戻るボタンのスタイル------------ */
+.scroll-button-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #007bff;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* ----------------list.html----------------- */
+
+.advertisement {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.advertisement img {
+    margin-bottom: 20px;
+}
+
+.advertisement-a {
+    text-align: center;
+    color: red;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 1000px) {
+    .advertisement {
+        position: static;
+        display: block;
+        margin-top: 20px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -----------------contact------------------- */
+/* 画面幅が1280px以上の場合 */

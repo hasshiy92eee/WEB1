@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="これはHTMLCSSの課題作品です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>ゲーム紹介（仮）</title>
+</head>
+
+
+
+
+<body>
+    <header class="page-header page-class">
+        <h1 class="text">
+            ゲーム紹介
+        </h1>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">1F</a></li>
+                <li><a href="list.html">2F</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="section-contact">
+        <footer class="footer">
+            <figure class="footer-map">
+
+                <h1>godsgardenの環境・立地</h1>
+                <p>当店は20代から30代のお客様をメインターゲットにしており、地下に20台の駐車場を完備しています。駐輪スペースも用意しており、分煙スペースも設けています。<br>
+                    また、お手洗いは1Fと2Fに完備しています。お客様の快適な滞在をサポートしています。最寄りの駅から徒歩5分です!お客様のご来店をお待ちしております。（全てフィクションです）
+                </p>
+
+                <iframe src="https://www.google.com/maps/d/embed?mid=1btIm0ZjDQ9YvJ_Up8lnFbcRxEAg&hl=ja&ehbc=2E312F"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+                <figcaption class="footer-mapinfo">
+                    <div class="footer-maplogo">
+                        Godsgarden
+                    </div>
+                    <address class="footer-mapaddress">
+                        〒100-0000 大阪府大阪市梅田区 1-1-1 <br>
+                        <a href="https://maps.app.goo.gl/5JYrFAYAdCirUU1UA" target="_blank">Google Map</a>
+                    </address>
+                </figcaption>
+            </figure>
+            <hr class="footer-divider">
+
+        </footer>
+    </section>
+
+    <h1 class="contact-headline">お問合せ</h1>
+
+    <form class="contact-form">
+        <table class="contact-form-table">
+            <tr>
+                <th><label for="menu">メニュー</label></th>
+                <td>
+                    <select class="select" id="menu" name="menu">
+                        <option value="Menu-1">Menu 1</option>
+                        <option value="Menu-2">Menu 2</option>
+                        <option value="Menu-3">Menu 3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="name">お名前</label></th>
+                <td><input class="contact-input" type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <th><label for="email">Eメール</label></th>
+                <td><input class="contact-input" type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <th>性別</th>
+                <td>
+                    <label class="radio"><input type="radio" name="gender" value="male"> 男性</label>
+                    <label class="radio"><input type="radio" name="gender" value="female"> 女性</label>
+                    <label class="radio"><input type="radio" name="gender" value="other"> その他</label>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="detail">詳細</label></th>
+                <td><textarea class="contact-textarea" id="detail" name="detail" cols="30" rows="10"></textarea></td>
+            </tr>
+        </table>
+        <div class="form-button">
+            <button class="button" type="submit">送信する</button>
+        </div>
+    </form>
+
+    <footer class="footer-copyright">
+        &copy;2024 ゲーム紹介 hashizume toshiki
+    </footer>
+</body>
+
+</html>
