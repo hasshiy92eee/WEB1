@@ -1,5 +1,5 @@
-//画面スクロールしたことにより一度アニメーションが終了した場合でも
-//オブジェクト指向(設計)で何度でもアニメーションを繰り返すようにする
+
+//オブジェクト指向(設計)classを使い、スクロールの度に何度でもアニメーションを繰り返すようにする
 'use strict';
 
 class ScrollAnimation {
@@ -30,12 +30,12 @@ class ScrollAnimation {
     }
 
     pauseAnimation() {
-        this.scrollPaused = true; //: スクロールが一時停止したことを示すフラグは true に設定します
+        this.scrollPaused = true; //: スクロールが一時停止したことを示すフラグは true に設定
     }
 
     resumeAnimation() {
         this.scrollPaused = false;
-        this.handleScroll(); // スクロール処理を再度実行してアニメーションを再開します
+        this.handleScroll(); // スクロール処理を再度実行してアニメーションを再開する
     }
 }
 
