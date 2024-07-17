@@ -1,8 +1,5 @@
-
 //オブジェクト指向(設計)classを使い、スクロールの度に何度でもアニメーションを繰り返すようにする
-//今後機能を追加することを視野に入れてカプセル化にしておく（追加するなら非同期処理など？）
-//JavaScriptでは抽象クラスの概念が存在しない？多態性をどうする？
-//継承の概念はある。
+//JavaScriptでは抽象クラスの概念が存在しないので基底クラス（親クラス）とする
 'use strict';
 
 class ScrollAnimation {
@@ -12,6 +9,10 @@ class ScrollAnimation {
     #scrollTimeout;
 
     constructor(selector) {
+        if (new.target === ScrollAnimation) {
+            //抽象クラスがないので開発者が抽象クラスのような動作をエミュレートさせる
+            throw new Error('ScrollAnimation（基底クラス）は直接インスタンス化できません');
+        }
         this.#targetElements = document.querySelectorAll(selector);
         this.#scrollPaused = false;
         this.#init();
@@ -38,6 +39,7 @@ class ScrollAnimation {
                 }
             });
         }
+        this.performAsyncTask();
     }
 
     // デバウンス処理のためのスクロールイベントハンドラー
@@ -59,7 +61,25 @@ class ScrollAnimation {
         this.#scrollPaused = false;
         this.#handleScroll();
     }
+
+    async performAsyncTask() {
+        throw new Error('performAsyncTask must be implemented by subclasses');
+    }
+}
+
+// 派生クラス
+class AsyncScrollAnimation extends ScrollAnimation {
+    constructor(selector) {
+        super(selector);
+    }
+
+    async performAsyncTask() {
+        // 非同期処理の例
+        console.log("非同期処理を開始！");
+        await new Promise(resolve => setTimeout(resolve, 2000)); // 2秒待つ
+        console.log("非同期処理が完了！");
+    }
 }
 
 // クラスのインスタンスを作成し、対象の要素をアニメーション対象とする
-const animation = new ScrollAnimation('.animationTarget');
+const animation = new AsyncScrollAnimation('.animationTarget');
