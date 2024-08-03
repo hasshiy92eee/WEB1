@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.react
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "9000:9000"
+    networks:
+      - react-network
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://backend:3001/api
+    mem_limit: 512m
+    depends_on:
+      - backend
+      - mariadb
+      - phpmyadmin
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3001:3001"
+    networks:
+      - react-network
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - react-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    networks:
+      - react-network
+
+networks:
+  react-network:
+
+
+volumes:
+  mariadb-data:

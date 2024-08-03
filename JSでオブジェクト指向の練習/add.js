@@ -18,14 +18,13 @@ class ScrollAnimation {
         this.#init();
     }
 
-    // 初期化する
+
     #init() {
         this.#handleScroll();
-        // スクロールイベントリスナーを追加
         document.addEventListener('scroll', this.#handleScroll.bind(this));
         window.addEventListener('scroll', this.#debounceScroll.bind(this));
     }
-
+££
     // スクロールイベントハンドラー
     #handleScroll() {
         const windowHeight = window.innerHeight;

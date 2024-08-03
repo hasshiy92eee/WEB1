@@ -1,0 +1,16 @@
+# Dockerfile.react
+
+FROM node:18 AS build
+
+WORKDIR /app
+
+# パッケージの依存関係をインストール
+COPY package*.json ./
+RUN npm install
+
+# ソースコードをコピー
+COPY . .
+
+# ビルドを実行
+RUN npm run build
+
