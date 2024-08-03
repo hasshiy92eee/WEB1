@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.get('/api/data', (req, res) => {
+app.get('/api/message', (req, res) => {
     res.json({ message: 'Hello from Express!' });
 });
 

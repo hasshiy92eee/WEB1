@@ -25,6 +25,7 @@ const App: React.FC = () => {
         const response = await fetchData();
         setData(response);
         setError(null);
+        console.log(response); // デバッグ用にコンソールに出力
       } catch (error) {
         console.error('Error fetching data:', error);
         setError('Failed to load data. Please try again later.');
@@ -52,9 +53,8 @@ const App: React.FC = () => {
           <FormComponent />
         </div>
       )}
-      <div className="data-container">
-        {error ? <p>{error}</p> : data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading data...</p>}
-      </div>
+      {/* サーバーからのデータはコンソールに出力し、ユーザーには表示しない */}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };
