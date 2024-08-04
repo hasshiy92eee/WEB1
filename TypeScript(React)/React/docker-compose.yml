@@ -32,10 +32,10 @@ services:
   mariadb:
     image: mariadb:latest
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: blockout21
+      MYSQL_DATABASE: myroot89www
+      MYSQL_USER: userstartup12ht
+      MYSQL_PASSWORD: mriondb3309ob
     ports:
       - "3306:3306"
     volumes:
